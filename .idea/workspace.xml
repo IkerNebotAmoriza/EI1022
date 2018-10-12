@@ -16,28 +16,28 @@
     <session id="1376530546">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.2" value="8" />
+          <entry key="project.open.time.2" value="9" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="10" />
-          <entry key="py" value="10" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="5" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="10" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -59,8 +59,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/comprueba.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5457" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -110,7 +117,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,6 +128,12 @@
               <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
               <item name="EI1022" type="462c0819:PsiDirectoryNode" />
               <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EjerciciosPracticas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
@@ -146,6 +158,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,7 +278,7 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3644674" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15937997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -331,10 +344,12 @@
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1.py" />
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/test_entregable1/comprueba.py" />
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/test_entregable1/labyrinthviewer.py" />
-    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/comprueba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5457" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
