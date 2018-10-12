@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89492b65-8907-401c-b612-6d40d383bd52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/comprueba.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/labyrinthviewer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/EI1022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EI1022.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EI1022/Entregables/Entregable1.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" afterDir="false" />
-    </list>
+    <list default="true" id="89492b65-8907-401c-b612-6d40d383bd52" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,15 +16,15 @@
     <session id="1376530546">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.2" value="7" />
+          <entry key="project.open.time.2" value="8" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -269,8 +263,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36168522" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3644674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -284,7 +279,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32969603" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32969603" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
