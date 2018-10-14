@@ -18,9 +18,6 @@ def load_lab(fichero):
     #rows = num de filas + la leida antes
     rows = len(fich.readlines())+1
 
-    print("Longitud filas: ",rows)
-    print("Longitud columnas: ",cols)
-
     fich.seek(0)
     edges=[]
     for r in range(rows):
@@ -32,7 +29,6 @@ def load_lab(fichero):
                 edges.append(((r,c),(r-1,c)))
             if "e" not in column:
                 edges.append(((r,c),(r,c+1)))
-    print("Laberinto creado")
 
     return UndirectedGraph (E=edges), rows, cols
 
@@ -121,19 +117,31 @@ def recuperador_camino(lista_aristas, v):
 ########################################################################################################################
 
 
-def derribar_pared(mInicio, mFinal, aristas,rows,cols):
+def derribar_pared(mInicio, mFinal, rows,cols):
     distMin = ( mInicio[0][0] + mFinal[0][0] )
     pared = ()
     for row in range(rows-1):
         for col in range(cols-1):
-            if((mInicio[row][col] + mFinal[row][col+1]) < distMin):
-                distMin = (mInicio[row][col] + mFinal[row][col+1])
+
+            dist = (mInicio[row][col] + mFinal[row][col+1])
+            if(dist < distMin):
+                distMin = dist+1
                 pared = ((row,col),(row,col+1))
-            if((mInicio[row][col] + mFinal [row+1][col]) < distMin):
-                distMin = (mInicio[row][col] + mFinal[row+1][col])
+
+            elif (dist == distMin):
+                if(pared[0] > (row,col)):
+                    pared = ((row, col), (row, col + 1))
+
+            dist = (mInicio[row][col] + mFinal [row+1][col])
+            if(dist <= distMin):
+                distMin = dist+1
                 pared = ((row+1,col),(row,col))
-            print(distMin)
-    return pared
+
+            elif (dist == distMin):
+                if(pared[0] > (row,col)):
+                    pared = ((row, col), (row+1, col))
+
+    return pared, distMin
 
 
 ########################################################################################################################
@@ -146,8 +154,6 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Argumentos invalidos")
         SystemExit
-    else:
-        print("El nombre del programa:", sys.argv[0])
 
     lab = load_lab(sys.argv[1])
 
@@ -156,16 +162,20 @@ if __name__ == '__main__':
     columns=lab[2]
 
     m1,m2,recorrido= getDistances(graph,rows,columns)
+    pared,distMin = derribar_pared(m1,m2,rows,columns)
 
-    print("MATRIZ INICIO A FIN ", m1)
-    print("MATRIZ FIN A INICIO ", m2)
-    print("RECORRIDO ",recorrido)
+    if pared[0] < pared [1]:
+        c1 = pared[0]
+        c2 = pared[1]
+    else:
+        c1 = pared[1]
+        c2 = pared[0]
 
-    pared = derribar_pared(m1,m2,recorrido,rows,columns)
-    print("PARED A DERRIBAR ",pared)
+    print(c1[0], " ", c1[1], " ", c2[0], " ", c2[1])
+    print(m2[0][0])
+    print(distMin)
 
-
-    viewer = LabyrinthViewer(graph, canvas_width=800, canvas_height=480, margin=10)
+    viewer = LabyrinthViewer(graph, canvas_width=1900, canvas_height=1300, margin=10)
     viewer.add_marked_cell(pared[0], 'red')
     viewer.add_marked_cell(pared[1], 'red')
     viewer.run()
