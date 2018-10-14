@@ -3,69 +3,95 @@ from algoritmia.datastructures.digraphs import UndirectedGraph
 from algoritmia.datastructures.queues import Fifo
 from EI1022.Entregables.Entregable1.labyrinthviewer import LabyrinthViewer
 
-
 ########################################################################################################################
 ########################################################################################################################
 
-def load_labyrinth(fichero) -> UndirectedGraph:
-    # ABRIMOS EL FICHERO
-    fich = open(fichero)
 
-    # LEEMOS LA PRIMERA LINEA DEL FICHERO Y CONTAMOS EL NUMERO DE COLUMNAS
+def load_lab(fichero):
+    fich= open(fichero)
+
+    #Lee la primera linea
+    #cols = len de la lista que devuelve split
     cols = len(fich.readline().split(","))
-    # LEEMOS EL RESTO DE LINEAS DEL FICHERO Y CONTAMOS EL NUMERO DE FILAS
-    rows = len(fich.readlines()) + 1
 
-    # VOLVEMOS AL INICIOD EL FICHERO Y CREAMOS UNA LISTA DE ARISTAS
+    #Lee el resto de filas
+    #rows = num de filas + la leida antes
+    rows = len(fich.readlines())+1
+
+    print("Longitud filas: ",rows)
+    print("Longitud columnas: ",cols)
+
     fich.seek(0)
-    edges = []
-
-    # PARA CADA CELDA DEL LABERINTO CONSULTAMOS SU INFORMACION EN EL FICHERO
+    edges=[]
     for r in range(rows):
-        # GUARDAMOS EN UNA VECTOR AUXILIAR LOS DATOS PARA CADA FILA
-        auxRow = fich.readline().split(",")
-
+        #Vector que guarda cada linea
+        row = fich.readline().split(",")
         for c in range(cols):
-            # GUARDAMOS EN UNA VARIABLE AUXILIAR EL VALOR PARA CADA CELDA DE LA FILA
-            auxCell = auxRow[c]
-            # AÑADIMOS ARISTAS A LA LISTA DE ARISTAS EN FUNCION A LOS DATOS DE LA CELDA
-            # (PARA EVITAR ARISTAS REPETIDAS SOLO EVALUAMOS SI HAY MUROS AL NORTE Y AL ESTE)
-            if "n" not in auxCell:
-                edges.append(((r, c), (r - 1, c)))
-            if "e" not in auxCell:
-                edges.append(((r, c), (r, c + 1)))
+            column=row[c]
+            if "n" not in column:
+                edges.append(((r,c),(r-1,c)))
+            if "e" not in column:
+                edges.append(((r,c),(r,c+1)))
+    print("Laberinto creado")
 
-    # CUANDO TODAS LAS ARISTAS HAN SIDO AÑADIDAS CREAMOS Y DEVOLVEMOS EL GRAFO
-    return UndirectedGraph(E=edges), rows, cols
+    return UndirectedGraph (E=edges), rows, cols
 
 
 ########################################################################################################################
 ########################################################################################################################
 
 
-def recorredor_aristas_anchura(grafo, v_inicial):
-    # CREAMOS LA LISTA DE ARISTAS, LA COLA Y EL SET QUE VAMOS A UTILIZAR
+def recorredor_anchura(g: UndirectedGraph, source: "T", r: int, c: int  ):
     aristas = []
+
+    #Crear e inicializar matriz
+    distances = []
+    for row in range(r):
+        distances.append([0]*c)
+
     queue = Fifo()
     seen = set()
-    # INTRODUCIMOS EN LA COLA LA PRIMERA ARISTA, QUE EMPIEZA Y ACABA SOBRE SI MISMA (ARISTA FANTASMA)
-    queue.push((v_inicial, v_inicial))
-    # Y LA AÑADIMOS AL SET DE VERTICES VISTOS
-    seen.add(v_inicial)
 
-    # CONTINUAMOS MIENTRAS QUEDEN ELEMENTOS EN LA COLA
+    #Añadir el punto inicial a la cola
+
+    queue.push((source,source))
+    seen.add(source)
     while len(queue) > 0:
-        u, v = queue.pop()
-        aristas.append((u, v))
-        # CONSULTAMOS LOS SUCESORES DEL VERTICE QUE SACAMOS DE LA COLA
-        for suc in grafo.succs(v):
-            # Y SI NO HAN SIDO VISITADOS AÑADIMOS EL VERTICE PADRE AL SET DE VISTOS Y SUS SUCESORES A LA COLA
-            if suc not in seen:
-                seen.add(suc)
-                queue.push((v, suc))
 
-    # DEVOLVEMOS LA LISTA DE ARISTAS DEL RECORRIDO
-    return aristas
+        u,v= queue.pop()
+        aristas.append((u,v))
+
+
+        for s in g.succs(v):
+            if s not in seen:
+                seen.add(s)
+                distances[s[0]][s[1]] = distances[v[0]][v[1]] +1 #en la posición del sucesor el antecesor mas 1
+                queue.push((v,s))
+
+    return aristas, distances
+
+
+########################################################################################################################
+########################################################################################################################
+
+
+def getDistances(g: UndirectedGraph, row: int, col: int):
+    recorrido = []   #lista de vertices
+    inicio_fin = []  #matriz longitudes de inicio a fin
+    fin_inicio = []  #matriz longitudes de fin a inicio
+
+    init=(0,0)
+    fin = (row-1,col-1)
+
+    for r in range(row):
+        inicio_fin.append([0] * col)
+        fin_inicio.append([0]*col)
+
+    recorrido, inicio_fin = recorredor_anchura(g, init, row, col)
+    fin_inicio = recorredor_anchura(g, fin, row, col)[1]
+
+
+    return inicio_fin, fin_inicio, recorrido
 
 
 ########################################################################################################################
@@ -73,9 +99,9 @@ def recorredor_aristas_anchura(grafo, v_inicial):
 
 
 def recuperador_camino(lista_aristas, v):
+
     # CREAMOS UN DICCIONARIO DE BACKPOINTERS
     bp = {}
-    # Y LO LLENAMOS CON LA LISTA DE ARISTAS
     for o, d in lista_aristas:
         bp[d] = o
 
@@ -88,7 +114,6 @@ def recuperador_camino(lista_aristas, v):
 
     # LE DAMOS LA VUELTA AL CAMINO YA QUE LO HEMOS RECORRIDO EN SENTIDO CONTRARIO
     camino.reverse()
-    # Y DEVOLVEMOS EL CAMINO
     return camino
 
 
@@ -96,25 +121,19 @@ def recuperador_camino(lista_aristas, v):
 ########################################################################################################################
 
 
-def getDistances(lab: UndirectedGraph, rows: int, cols: int):
-    # CREAMOS LA MATRIZ DE DISTANCIAS
-    distancias = []
-
-    for r in range(rows):
-        distancias.append([])
-        for c in range(cols):
-            # RECORREMOS EL LABERINTO DESDE CADA CELDA DEL MISMO
-            aristas = recorredor_aristas_anchura(lab, (r, c))
-            # GUARDAMOS LA DISTANCIA HASTA LA ENTRADA
-            distEntrada = len(recuperador_camino(aristas, (0, 0)))
-            # GUARDAMOS LA DISTANCIA HASTA LA SALIDA
-            distSalida = len(recuperador_camino(aristas, (rows - 1, cols - 1)))
-
-            # Y LAS AÑADIMOS A SU CELDA CORRESPONDIENTE EN LA MATRIZ
-            distancias[r].append((distEntrada, distSalida))
-
-    # DEVOLVEMOS LA MATRIZ DE DISTANCIAS
-    return distancias
+def derribar_pared(mInicio, mFinal, aristas,rows,cols):
+    distMin = ( mInicio[0][0] + mFinal[0][0] )
+    pared = ()
+    for row in range(rows-1):
+        for col in range(cols-1):
+            if((mInicio[row][col] + mFinal[row][col+1]) < distMin):
+                distMin = (mInicio[row][col] + mFinal[row][col+1])
+                pared = ((row,col),(row,col+1))
+            if((mInicio[row][col] + mFinal [row+1][col]) < distMin):
+                distMin = (mInicio[row][col] + mFinal[row+1][col])
+                pared = ((row+1,col),(row,col))
+            print(distMin)
+    return pared
 
 
 ########################################################################################################################
@@ -122,6 +141,7 @@ def getDistances(lab: UndirectedGraph, rows: int, cols: int):
 
 
 if __name__ == '__main__':
+
     print("Numero de argumentos con los que has llamado al programa", len(sys.argv))
     if len(sys.argv) != 2:
         print("Argumentos invalidos")
@@ -129,21 +149,23 @@ if __name__ == '__main__':
     else:
         print("El nombre del programa:", sys.argv[0])
 
-    lab, rows, cols = load_labyrinth(sys.argv[1])
-    celda_final = (rows - 1, cols - 1)
-    celda_entrada = (0, 0)
+    lab = load_lab(sys.argv[1])
 
-    aristas = recorredor_aristas_anchura(lab, celda_entrada)
-    camino = recuperador_camino(aristas, celda_final)
+    graph=lab[0]
+    rows= lab[1]
+    columns=lab[2]
 
-    x = getDistances(lab, rows, cols)
+    m1,m2,recorrido= getDistances(graph,rows,columns)
 
-    for r in range(rows):
-        fila = []
-        for c in range(cols):
-            fila.append(x[r][c])
-        print(fila)
+    print("MATRIZ INICIO A FIN ", m1)
+    print("MATRIZ FIN A INICIO ", m2)
+    print("RECORRIDO ",recorrido)
 
-    viewer = LabyrinthViewer(lab, canvas_width=800, canvas_height=480, margin=10)
-    viewer.add_path(camino)
-    viewer.run();
+    pared = derribar_pared(m1,m2,recorrido,rows,columns)
+    print("PARED A DERRIBAR ",pared)
+
+
+    viewer = LabyrinthViewer(graph, canvas_width=800, canvas_height=480, margin=10)
+    viewer.add_marked_cell(pared[0], 'red')
+    viewer.add_marked_cell(pared[1], 'red')
+    viewer.run()
