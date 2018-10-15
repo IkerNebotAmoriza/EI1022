@@ -125,7 +125,7 @@ def derribar_pared(mInicio, mFinal, rows,cols):
 
             dist = (mInicio[row][col] + mFinal[row][col+1])
             if(dist < distMin):
-                distMin = dist+1
+                distMin = dist
                 pared = ((row,col),(row,col+1))
 
             elif (dist == distMin):
@@ -134,14 +134,14 @@ def derribar_pared(mInicio, mFinal, rows,cols):
 
             dist = (mInicio[row][col] + mFinal [row+1][col])
             if(dist <= distMin):
-                distMin = dist+1
+                distMin = dist
                 pared = ((row+1,col),(row,col))
 
             elif (dist == distMin):
                 if(pared[0] > (row,col)):
                     pared = ((row, col), (row+1, col))
 
-    return pared, distMin
+    return pared, distMin+1
 
 
 ########################################################################################################################
@@ -150,7 +150,6 @@ def derribar_pared(mInicio, mFinal, rows,cols):
 
 if __name__ == '__main__':
 
-    print("Numero de argumentos con los que has llamado al programa", len(sys.argv))
     if len(sys.argv) != 2:
         print("Argumentos invalidos")
         SystemExit
@@ -175,7 +174,7 @@ if __name__ == '__main__':
     print(m2[0][0])
     print(distMin)
 
-    viewer = LabyrinthViewer(graph, canvas_width=1900, canvas_height=1300, margin=10)
+    viewer = LabyrinthViewer(graph, canvas_width=1000, canvas_height=600, margin=10)
     viewer.add_marked_cell(pared[0], 'red')
     viewer.add_marked_cell(pared[1], 'red')
     viewer.run()

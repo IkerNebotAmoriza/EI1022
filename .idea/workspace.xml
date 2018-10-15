@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89492b65-8907-401c-b612-6d40d383bd52" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/chikilab.i" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +15,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/EI1022$s1_p4.coverage" NAME="s1_p4 Coverage Results" MODIFIED="1539348842517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
     <SUITE FILE_PATH="coverage/EI1022$s1_p1.coverage" NAME="s1_p1 Coverage Results" MODIFIED="1539360727226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
-    <SUITE FILE_PATH="coverage/EI1022$entregable1.coverage" NAME="entregable1 Coverage Results" MODIFIED="1539557809382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Entregables/Entregable1" />
+    <SUITE FILE_PATH="coverage/EI1022$entregable1.coverage" NAME="entregable1 Coverage Results" MODIFIED="1539589338153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Entregables/Entregable1" />
     <SUITE FILE_PATH="coverage/EI1022$s1_p3.coverage" NAME="s1_p3 Coverage Results" MODIFIED="1539360698669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
     <SUITE FILE_PATH="coverage/EI1022$s1_p2.coverage" NAME="s1_p2 Coverage Results" MODIFIED="1539360736876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
     <SUITE FILE_PATH="coverage/EI1022$comprueba.coverage" NAME="comprueba Coverage Results" MODIFIED="1539550610356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Entregables/Entregable1" />
@@ -22,29 +24,29 @@
     <session id="1376530546">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="32" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.2" value="15" />
           <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="10" />
-          <entry key="i" value="5" />
-          <entry key="o" value="2" />
+          <entry key="i" value="6" />
+          <entry key="o" value="10" />
           <entry key="py" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="5" />
-          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="PLAIN_TEXT" value="21" />
           <entry key="Python" value="37" />
         </counts>
       </usages-collector>
@@ -52,7 +54,7 @@
         <counts>
           <entry key="Python Console" value="63" />
           <entry key="gitignore" value="22" />
-          <entry key="py" value="7699" />
+          <entry key="py" value="7729" />
           <entry key="txt" value="20" />
         </counts>
       </usages-collector>
@@ -60,26 +62,13 @@
         <counts>
           <entry key="Git file" value="10" />
           <entry key="PLAIN_TEXT" value="32" />
-          <entry key="Python" value="7762" />
+          <entry key="Python" value="7792" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1079">
-              <caret line="177" column="53" selection-start-line="177" selection-start-column="53" selection-end-line="177" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -113,10 +102,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="666" />
-    <option name="y" value="133" />
-    <option name="width" value="1294" />
-    <option name="height" value="1407" />
+    <option name="x" value="8" />
+    <option name="y" value="13" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -151,14 +140,6 @@
               <item name="EI1022" type="462c0819:PsiDirectoryNode" />
               <item name="Entregables" type="462c0819:PsiDirectoryNode" />
               <item name="Entregable1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-              <item name="Entregables" type="462c0819:PsiDirectoryNode" />
-              <item name="Entregable1" type="462c0819:PsiDirectoryNode" />
-              <item name="pruebas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
@@ -240,7 +221,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" />
-      <option name="PARAMETERS" value="pruebas/laberinto-150x240.i" />
+      <option name="PARAMETERS" value="pruebas/laberinto-10x20.i" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -360,15 +341,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10413355" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20121029" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.15354638" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.45826513" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -377,7 +357,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32969603" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -419,13 +399,7 @@
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1.py" />
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/test_entregable1/comprueba.py" />
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/test_entregable1/labyrinthviewer.py" />
-    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-10x20.o">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-45x72.i">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-45x72.o">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-150x240.i">
@@ -507,10 +481,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/labEntregable.i">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-15x24.o">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-150x240.o">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-45x72.o">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/pruebas/laberinto-10x20.o">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1079">
-          <caret line="177" column="53" selection-start-line="177" selection-start-column="53" selection-end-line="177" selection-end-column="53" />
+        <state relative-caret-position="2312">
+          <caret line="136" column="30" lean-forward="true" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
