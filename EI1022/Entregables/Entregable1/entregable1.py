@@ -1,7 +1,7 @@
 import sys
 from algoritmia.datastructures.digraphs import UndirectedGraph
 from algoritmia.datastructures.queues import Fifo
-from EI1022.Entregables.Entregable1.labyrinthviewer import LabyrinthViewer
+from labyrinthviewer import LabyrinthViewer
 
 ########################################################################################################################
 ########################################################################################################################
@@ -120,26 +120,16 @@ def recuperador_camino(lista_aristas, v):
 def derribar_pared(mInicio, mFinal, rows,cols):
     distMin = ( mInicio[0][0] + mFinal[0][0] )
     pared = ()
-    for row in range(rows-1):
-        for col in range(cols-1):
+    for row in range(rows):
+        for col in range(cols):
 
-            dist = (mInicio[row][col] + mFinal[row][col+1])
-            if(dist < distMin):
-                distMin = dist
+            if(col != cols-1 and (mInicio[row][col]+mFinal[row][col+1]) < distMin):
+                distMin = (mInicio[row][col]+mFinal[row][col+1])
                 pared = ((row,col),(row,col+1))
 
-            elif (dist == distMin):
-                if(pared[0] > (row,col)):
-                    pared = ((row, col), (row, col + 1))
-
-            dist = (mInicio[row][col] + mFinal [row+1][col])
-            if(dist <= distMin):
-                distMin = dist
+            if(row != rows-1 and (mInicio[row][col] + mFinal [row+1][col]) < distMin):
+                distMin = (mInicio[row][col] + mFinal [row+1][col])
                 pared = ((row+1,col),(row,col))
-
-            elif (dist == distMin):
-                if(pared[0] > (row,col)):
-                    pared = ((row, col), (row+1, col))
 
     return pared, distMin+1
 
@@ -170,11 +160,11 @@ if __name__ == '__main__':
         c1 = pared[1]
         c2 = pared[0]
 
-    print(c1[0], " ", c1[1], " ", c2[0], " ", c2[1])
+    print(c1[0], c1[1], c2[0], c2[1])
     print(m2[0][0])
     print(distMin)
 
-    viewer = LabyrinthViewer(graph, canvas_width=1000, canvas_height=600, margin=10)
-    viewer.add_marked_cell(pared[0], 'red')
-    viewer.add_marked_cell(pared[1], 'red')
-    viewer.run()
+    #viewer = LabyrinthViewer(graph, canvas_width=1000, canvas_height=600, margin=10)
+    #viewer.add_marked_cell(pared[0], 'red')
+    #viewer.add_marked_cell(pared[1], 'red')
+    #viewer.run()
