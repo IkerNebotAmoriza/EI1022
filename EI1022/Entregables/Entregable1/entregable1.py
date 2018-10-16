@@ -1,7 +1,7 @@
 import sys
 from algoritmia.datastructures.digraphs import UndirectedGraph
 from algoritmia.datastructures.queues import Fifo
-from labyrinthviewer import LabyrinthViewer
+from EI1022.Entregables.Entregable1.labyrinthviewer import LabyrinthViewer
 
 ########################################################################################################################
 ########################################################################################################################
