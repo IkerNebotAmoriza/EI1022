@@ -1,7 +1,7 @@
 from algoritmia.datastructures.digraphs import UndirectedGraph
 from Utils.labyrinthviewer import LabyrinthViewer
 from typing import Tuple, List
-from EI1022.Problemas.s1_p1 import create_labyrinth
+from Problemas.P1.s1_p1 import create_labyrinth
 
 
 def recorrer_aristas_profundidad(lab: UndirectedGraph, v_inicial: "T") -> "T | None":

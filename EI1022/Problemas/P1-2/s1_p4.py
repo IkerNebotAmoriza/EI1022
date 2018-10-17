@@ -1,8 +1,7 @@
 from algoritmia.datastructures.digraphs import UndirectedGraph
-from algoritmia.datastructures.queues import Fifo
 
 from Utils.graph2dviewer import Graph2dViewer
-from EI1022.Problemas.s1_p3 import recorredor_aristas_anchura
+from Problemas.P1.s1_p3 import recorredor_aristas_anchura
 
 def horse_graph(rows, cols):
     edges = []
