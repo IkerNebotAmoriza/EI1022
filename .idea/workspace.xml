@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89492b65-8907-401c-b612-6d40d383bd52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EI1022/Problemas/P3/binpacking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EI1022/Problemas/s1_p1.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Problemas/P1-2/s1_p1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EI1022/Problemas/s1_p2.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Problemas/P1-2/s1_p2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EI1022/Problemas/s1_p3.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Problemas/P1-2/s1_p3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EI1022/Problemas/s1_p4.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Problemas/P1-2/s1_p4.py" afterDir="false" />
-    </list>
+    <list default="true" id="89492b65-8907-401c-b612-6d40d383bd52" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +21,7 @@
     <session id="1376530546">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="38" />
+          <entry key="project.closed" value="39" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.2" value="16" />
@@ -36,8 +29,8 @@
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -45,14 +38,14 @@
           <entry key="gitignore" value="12" />
           <entry key="i" value="7" />
           <entry key="o" value="13" />
-          <entry key="py" value="40" />
+          <entry key="py" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="7" />
           <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="40" />
+          <entry key="Python" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -73,18 +66,27 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EI1022/Problemas/P3/binpacking.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-69">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="17">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <marker date="1539780901441" expanded="true" signature="77:403" ph="..." />
                 <marker date="1539780901441" expanded="true" signature="460:771" ph="..." />
                 <marker date="1539780901441" expanded="true" signature="837:838" ph="..." />
                 <marker date="1539780901441" expanded="true" signature="837:1220" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -149,19 +151,6 @@
               <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
               <item name="EI1022" type="462c0819:PsiDirectoryNode" />
               <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-              <item name="Problemas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
-              <item name="Problemas" type="462c0819:PsiDirectoryNode" />
-              <item name="P3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
@@ -363,9 +352,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21482602" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21785174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -510,13 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -529,14 +510,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EI1022/Problemas/P3/binpacking.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="17">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <marker date="1539780901441" expanded="true" signature="77:403" ph="..." />
             <marker date="1539780901441" expanded="true" signature="460:771" ph="..." />
             <marker date="1539780901441" expanded="true" signature="837:838" ph="..." />
             <marker date="1539780901441" expanded="true" signature="837:1220" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
         </state>
       </provider>
     </entry>
