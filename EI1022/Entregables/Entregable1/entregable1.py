@@ -1,7 +1,7 @@
 import sys
 from algoritmia.datastructures.digraphs import UndirectedGraph
 from algoritmia.datastructures.queues import Fifo
-from EI1022.Entregables.Entregable1.labyrinthviewer import LabyrinthViewer
+
 
 ########################################################################################################################
 ########################################################################################################################
@@ -52,11 +52,9 @@ def recorredor_anchura(g: UndirectedGraph, source: "T", r: int, c: int  ):
 
     queue.push((source,source))
     seen.add(source)
+
     while len(queue) > 0:
-
         u,v= queue.pop()
-        aristas.append((u,v))
-
 
         for s in g.succs(v):
             if s not in seen:
@@ -64,7 +62,7 @@ def recorredor_anchura(g: UndirectedGraph, source: "T", r: int, c: int  ):
                 distances[s[0]][s[1]] = distances[v[0]][v[1]] +1 #en la posición del sucesor el antecesor mas 1
                 queue.push((v,s))
 
-    return aristas, distances
+    return distances
 
 
 ########################################################################################################################
@@ -72,45 +70,14 @@ def recorredor_anchura(g: UndirectedGraph, source: "T", r: int, c: int  ):
 
 
 def getDistances(g: UndirectedGraph, row: int, col: int):
-    recorrido = []   #lista de vertices
-    inicio_fin = []  #matriz longitudes de inicio a fin
-    fin_inicio = []  #matriz longitudes de fin a inicio
-
     init=(0,0)
     fin = (row-1,col-1)
 
-    for r in range(row):
-        inicio_fin.append([0] * col)
-        fin_inicio.append([0]*col)
-
-    recorrido, inicio_fin = recorredor_anchura(g, init, row, col)
-    fin_inicio = recorredor_anchura(g, fin, row, col)[1]
+    inicio_fin = recorredor_anchura(g, init, row, col)
+    fin_inicio = recorredor_anchura(g, fin, row, col)
 
 
-    return inicio_fin, fin_inicio, recorrido
-
-
-########################################################################################################################
-########################################################################################################################
-
-
-def recuperador_camino(lista_aristas, v):
-
-    # CREAMOS UN DICCIONARIO DE BACKPOINTERS
-    bp = {}
-    for o, d in lista_aristas:
-        bp[d] = o
-
-    camino = []
-    camino.append(v)
-    # CONTINUAMOS MIENTRAS EL VERTICE ACTUAL NO APUNTE A SI MISMO (ARISTA FANTASMA)
-    while v != bp[v]:
-        v = bp[v]
-        camino.append(v)
-
-    # LE DAMOS LA VUELTA AL CAMINO YA QUE LO HEMOS RECORRIDO EN SENTIDO CONTRARIO
-    camino.reverse()
-    return camino
+    return inicio_fin, fin_inicio
 
 
 ########################################################################################################################
@@ -163,8 +130,3 @@ if __name__ == '__main__':
     print(c1[0], c1[1], c2[0], c2[1])
     print(m2[0][0])
     print(distMin)
-
-    #viewer = LabyrinthViewer(graph, canvas_width=1000, canvas_height=600, margin=10)
-    #viewer.add_marked_cell(pared[0], 'red')
-    #viewer.add_marked_cell(pared[1], 'red')
-    #viewer.run()
