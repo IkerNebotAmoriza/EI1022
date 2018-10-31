@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89492b65-8907-401c-b612-6d40d383bd52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EI1022/Problemas/P4/sudoku.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EI1022/Problemas/P4/sudoku_copy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utils/bt_scheme.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" beforeDir="false" afterPath="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,27 +18,29 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/EI1022$s1_p4.coverage" NAME="s1_p4 Coverage Results" MODIFIED="1539348842517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
+    <SUITE FILE_PATH="coverage/EI1022$sudoku.coverage" NAME="sudoku Coverage Results" MODIFIED="1540993919302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas/P4" />
     <SUITE FILE_PATH="coverage/EI1022$s1_p1.coverage" NAME="s1_p1 Coverage Results" MODIFIED="1539360727226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
     <SUITE FILE_PATH="coverage/EI1022$binpacking.coverage" NAME="binpacking Coverage Results" MODIFIED="1539780901456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas/P3" />
     <SUITE FILE_PATH="coverage/EI1022$entregable1.coverage" NAME="entregable1 Coverage Results" MODIFIED="1539594629960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Entregables/Entregable1" />
     <SUITE FILE_PATH="coverage/EI1022$s1_p3.coverage" NAME="s1_p3 Coverage Results" MODIFIED="1539360698669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
     <SUITE FILE_PATH="coverage/EI1022$s1_p2.coverage" NAME="s1_p2 Coverage Results" MODIFIED="1539360736876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas" />
+    <SUITE FILE_PATH="coverage/EI1022$sudoku_copy.coverage" NAME="sudoku_copy Coverage Results" MODIFIED="1540994474503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Problemas/P4" />
     <SUITE FILE_PATH="coverage/EI1022$comprueba.coverage" NAME="comprueba Coverage Results" MODIFIED="1539550610356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EI1022/Entregables/Entregable1" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1376530546">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="45" />
+          <entry key="project.closed" value="46" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.2" value="21" />
           <entry key="project.open.time.3" value="6" />
-          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="45" />
+          <entry key="project.opened" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -44,29 +48,30 @@
           <entry key="gitignore" value="13" />
           <entry key="i" value="7" />
           <entry key="o" value="13" />
-          <entry key="py" value="41" />
+          <entry key="py" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="8" />
           <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="41" />
+          <entry key="Python" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="63" />
+          <entry key="dummy" value="9" />
           <entry key="gitignore" value="22" />
-          <entry key="py" value="9734" />
+          <entry key="py" value="10393" />
           <entry key="txt" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="10" />
-          <entry key="PLAIN_TEXT" value="32" />
-          <entry key="Python" value="9797" />
+          <entry key="PLAIN_TEXT" value="41" />
+          <entry key="Python" value="10456" />
         </counts>
       </usages-collector>
     </session>
@@ -74,12 +79,33 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
+        <entry file="file://$PROJECT_DIR$/EI1022/Problemas/P4/sudoku_copy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="122">
+              <caret line="58" column="87" selection-start-line="58" selection-start-column="87" selection-end-line="58" selection-end-column="87" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algoritmia/src/algoritmia/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/bt_scheme.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="509">
+              <caret line="104" column="28" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
+              <folding>
+                <element signature="e#130#165#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,6 +136,10 @@
         <option value="$PROJECT_DIR$/EI1022/Problemas/P3/binpacking.py" />
         <option value="$PROJECT_DIR$/EI1022/.gitignore" />
         <option value="$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py" />
+        <option value="$PROJECT_DIR$/EI1022/EjerciciosPracticas/s3_sudoku.py" />
+        <option value="$PROJECT_DIR$/EI1022/EjerciciosPracticas/s3_scheme.py" />
+        <option value="$PROJECT_DIR$/EI1022/Problemas/P4/sudoku.py" />
+        <option value="$PROJECT_DIR$/EI1022/Problemas/P4/sudoku_copy.py" />
       </list>
     </option>
   </component>
@@ -131,7 +161,61 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="Problemas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="Problemas" type="462c0819:PsiDirectoryNode" />
+              <item name="P1-2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="Problemas" type="462c0819:PsiDirectoryNode" />
+              <item name="P3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="Problemas" type="462c0819:PsiDirectoryNode" />
+              <item name="P4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EI1022" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EI1022" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -142,15 +226,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas\P4" />
+      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas" />
+      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas\P4" />
+      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\Utils" />
       <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas\P1" />
       <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Entregables\Entregable1\pruebas" />
       <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Entregables\Entregable1" />
-      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\Utils" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas" />
-      <recent name="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -165,7 +251,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.binpacking">
+  <component name="RunManager" selected="Python.sudoku_copy">
     <configuration name="binpacking" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="EI1022" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -232,7 +318,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="s1_p1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="sudoku" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="EI1022" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -240,12 +326,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EI1022/Problemas" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EI1022/Problemas/P4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas\P1\s1_p1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EI1022/Problemas/P4/sudoku.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -254,7 +340,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="s1_p2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="sudoku_copy" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="EI1022" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -262,12 +348,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EI1022/Problemas" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EI1022/Problemas/P4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\ikern\Desktop\Zonas de Trabajo\PyCharm\EI1022\EI1022\Problemas\P1\s1_p2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EI1022/Problemas/P4/sudoku_copy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -279,17 +365,17 @@
     <list>
       <item itemvalue="Python.comprueba" />
       <item itemvalue="Python.entregable1" />
-      <item itemvalue="Python.s1_p1" />
-      <item itemvalue="Python.s1_p2" />
       <item itemvalue="Python.binpacking" />
+      <item itemvalue="Python.sudoku" />
+      <item itemvalue="Python.sudoku_copy" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sudoku_copy" />
+        <item itemvalue="Python.sudoku" />
         <item itemvalue="Python.binpacking" />
         <item itemvalue="Python.entregable1" />
         <item itemvalue="Python.comprueba" />
-        <item itemvalue="Python.s1_p2" />
-        <item itemvalue="Python.s1_p1" />
       </list>
     </recent_temporary>
   </component>
@@ -323,15 +409,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.47409734" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17927383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31423897" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -489,10 +574,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EI1022/Entregables/Entregable1/entregable1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state>
           <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/bt_scheme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="104" column="28" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
+          <folding>
+            <element signature="e#130#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Problemas/P4/sudoku.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1540992894585" expanded="true" signature="1211:1262" ph="..." />
+            <marker date="1540992894585" expanded="true" signature="1357:1457" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algoritmia/src/algoritmia/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EI1022/Problemas/P4/sudoku_copy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="58" column="87" selection-start-line="58" selection-start-column="87" selection-end-line="58" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
