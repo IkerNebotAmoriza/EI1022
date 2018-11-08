@@ -1,66 +1,40 @@
 from typing import *
 
-Folleto = Tuple[int,int,int]
-PosicionFolleto= Tuple[int,int,int,int]
-
+Folleto = Tuple[int, int, int]
+PosicionFolleto = Tuple[int, int, int, int]
 
 def optimiza_folletos(m: int, folletos: List[Folleto]) -> List[PosicionFolleto]:
-    sol = []
-    # Indices de folleto ordenados
-    indices_ordenados= sorted(range(len(folletos)), key = lambda i: (-folletos[i][2], -folletos[i][1]))
-    # Lista con la anchura actual, la altura total, y el elemento mas alto de la pagina
-    paginas = [[0, 0, 0]]
+    lista_sol = []
+    indices_ordenados = sorted(range(len(folletos)), key=lambda i: (-folletos[i][2],-folletos[i][1]))
+    lista_paginas = [[0, 0, 0]]
 
-    # Recorremos todos los folletos
-    for indice_folleto in indices_ordenados:
-        numero_folleto = folletos[indice_folleto][0]
-        anchura_folleto = folletos[indice_folleto][1]
-        altura_folleto = folletos[indice_folleto][2]
-        # Recorremos todas las paginas
-        for indice_pagina in range(len(paginas)):
+    for f in indices_ordenados:
+        nFolleto = folletos[f][0]
+        anchura = folletos[f][1]
+        altura = folletos[f][2]
 
-            # Si el folleto cabe en alguna pagina
-            if anchura_folleto + paginas[indice_pagina][0] <= m and altura_folleto + paginas[indice_pagina][2] <= paginas[indice_pagina][1]:
-
-                # Comprobamos si es el folleto mas alto de la pagina
-                if altura_folleto > paginas[indice_pagina][2]: paginas[indice_pagina][2] = altura_folleto
-                # Anyadimos el folleto
-                sol.append((numero_folleto, indice_pagina + 1, paginas[indice_pagina][0], paginas[indice_pagina][1]))
-                # Sumamos a la pagina la anchura ocupada por el folleto
-                paginas[indice_pagina][0] += anchura_folleto
+        for p in range(len(lista_paginas)):
+            if lista_paginas[p][0] + anchura <= m and lista_paginas[p][1] + altura <= m:
+                lista_sol.append((nFolleto, p+1, lista_paginas[p][0], lista_paginas[p][1]))
+                if anchura == 0:
+                    lista_paginas[p][2] = lista_paginas[p][1]+altura
+                lista_paginas[p][0] += anchura
                 break
 
-            # Si el folleto no cabe en el nivel actual, pero cabe en el nivel inferior de la pagina, bajamos de nivel
-            if anchura_folleto + paginas[indice_pagina][0] > m and altura_folleto + paginas[indice_pagina][2] <= paginas[indice_pagina][1]:
-                # Reiniciamos la anchura de la pagina en el nivel
-                paginas[indice_pagina][0] = 0
-                # Incrementamos el nivel de la pagina en funcion del folleto mas alto del nivel anterior
-                paginas[indice_pagina][1] += paginas[indice_pagina][2]
-                # El folleto actual pasa a ser el mas alto del nivel actual
-                paginas[indice_pagina][2] = altura_folleto
-                # Anyadimos el folleto actual
-                sol.append((numero_folleto, indice_pagina + 1, paginas[indice_pagina][0], paginas[indice_pagina][1]))
-                # Incrementamos la anchura
-                paginas[indice_pagina][0] += anchura_folleto
+            elif lista_paginas[p][0] + anchura > m and lista_paginas[p][2] + altura <= m:
+                lista_paginas[p][0] = 0
+                lista_paginas[p][1] = lista_paginas[p][2]
+                lista_paginas[p][2] += altura
+                lista_sol.append((nFolleto, p+1, lista_paginas[p][0], lista_paginas[p][1]))
+                lista_paginas[p][0] += anchura
                 break
+        else:
+            lista_paginas.append([0, 0, 0])
+            lista_sol.append((nFolleto, len(lista_paginas), 0, 0))
+            lista_paginas[-1][0] += anchura
+            lista_paginas[-1][2] += altura
 
-            # Si el folleto no cabe y nos encontramos en la ultima pagina, anyadimos una nueva pagina
-            if anchura_folleto + paginas[indice_pagina][0] > m and altura_folleto + paginas[indice_pagina][1] > m and indice_pagina == len(paginas)-1:
-                paginas.append([0, 0, 0])
-
-                # Recorremos todas las paginas hasta el final
-                for indice_pagina in range(len(paginas)):
-                    # Y comprobamos si podemos anyadir el folleto
-                    if anchura_folleto + paginas[indice_pagina][0] <= m:
-                        # Si el folleto cabe lo anyadimos
-                        sol.append((numero_folleto, indice_pagina + 1, paginas[indice_pagina][0], 0))
-                        paginas[indice_pagina][0] += anchura_folleto
-                        # Ya que el folleto es el primer elemento de la pagina creada, es el mas alto
-                        paginas[indice_pagina][2] = altura_folleto
-
-
-    return sol
-
+    return lista_sol
 
 def lee_fichero_imprenta(name: str) -> Tuple[int, List[Folleto]]:
     f = open(name)
@@ -70,10 +44,10 @@ def lee_fichero_imprenta(name: str) -> Tuple[int, List[Folleto]]:
 
     while line != "":
         info = line.split(" ")
-        folletos.append((int(info[0]),int(info[1]),int(info[2])))
-        line= f.readline()
+        folletos.append((int(info[0]), int(info[1]), int(info[2])))
+        line = f.readline()
 
-    t = [int(M),folletos]
+    t = [int(M), folletos]
     f.close()
     return t
 
