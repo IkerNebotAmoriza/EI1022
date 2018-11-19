@@ -116,14 +116,14 @@ class Block:
 
         #Si el bloque esta horizontal
         elif self.is_lying_on_a_row():
-            if is_valid_pos(Pos2D(self._b1.row,self._b1.col+2)) and is_valid_pos(Pos2D(self._b2.row,self._b2.col+1)):
+            if is_valid_pos(Pos2D(self._b1.row,self._b1.col+2)):
                 iter.append(Move.Right)
-            if is_valid_pos(Pos2D(self._b1.row,self._b1.col-1)) and is_valid_pos(Pos2D(self._b2.row,self._b2.col-2)):
+            if is_valid_pos(Pos2D(self._b1.row,self._b1.col-1)):
                 iter.append(Move.Left)
             if is_valid_pos(Pos2D(self._b1.row+1,self._b1.col)) and is_valid_pos(Pos2D(self._b2.row+1,self._b2.col)):
-                iter.append(Move.Up)
-            if is_valid_pos(Pos2D(self._b1.row - 1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row - 1, self._b2.col)):
                 iter.append(Move.Down)
+            if is_valid_pos(Pos2D(self._b1.row - 1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row - 1, self._b2.col)):
+                iter.append(Move.Up)
 
         #Si el bloque esta vertical
         elif self.is_lying_on_a_col():
@@ -131,10 +131,10 @@ class Block:
                 iter.append(Move.Right)
             if is_valid_pos(Pos2D(self._b1.row, self._b1.col - 1)) and is_valid_pos(Pos2D(self._b2.row, self._b2.col - 1)):
                 iter.append(Move.Left)
-            if is_valid_pos(Pos2D(self._b1.row-1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row-2, self._b2.col)):
-                iter.append(Move.Up)
-            if is_valid_pos(Pos2D(self._b1.row + 1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row + 2, self._b2.col)):
+            if is_valid_pos(Pos2D(self._b1.row + 1, self._b1.col)):
                 iter.append(Move.Down)
+            if is_valid_pos(Pos2D(self._b1.row - 2, self._b1.col)):
+                iter.append(Move.Up)
 
         return iter
 
