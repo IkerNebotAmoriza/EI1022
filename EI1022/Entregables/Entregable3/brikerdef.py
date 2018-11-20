@@ -40,16 +40,23 @@ class Level:
         self._mat = [line.strip() for line in open(filename).readlines()]
         self.rows = len(self._mat)
         self.cols = len(self._mat[0])
-        self._sPos = Pos2D ([(r,c) if self._mat[r][c] == "S" else "" for r in range(self.rows) for c in range(self.cols)])
-        self._tPos = Pos2D ([(r,c) if self._mat[r][c] == "T" else "" for r in range(self.rows) for c in range(self.cols)])
+        self._sPos = self.locate("S")
+        self._tPos = self.locate("T")
+
+    def locate(self, pos: str) -> Pos2D:
+        for row in range(self.rows):
+            for col in range(self.cols):
+                if self._mat[row][col] == pos:
+                    return Pos2D(row, col)
 
     def is_valid(self, pos: Pos2D) -> bool:
         # posiciones marcadas con '-'. Para todos los demás casos debe devolver True.
         r = pos.row
         c = pos.col
         if 0 <= r <= self.rows and 0 <= c <= self.cols:
-            if self._mat[r][c] == "o" or self._mat[r][c] == self._sPos or self._mat[r][c] == self._tPos:
+            if self._mat[r][c] != "-":
                 return True
+            return False
         return False
 
     def get_startpos(self) -> Pos2D:
