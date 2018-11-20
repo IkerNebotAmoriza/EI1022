@@ -44,7 +44,6 @@ class Level:
         self._tPos = Pos2D ([(r,c) if self._mat[r][c] == "T" else "" for r in range(self.rows) for c in range(self.cols)])
 
     def is_valid(self, pos: Pos2D) -> bool:
-        # TODO: IMPLEMENTAR - Debe devolver False para cualquier posición fuera del tablero o para
         # posiciones marcadas con '-'. Para todos los demás casos debe devolver True.
         r = pos.row
         c = pos.col
@@ -102,45 +101,79 @@ class Block:
 
     def valid_moves(self, is_valid_pos: Callable[[Pos2D], bool]) -> Iterable[Move]:
 
-        iter = []
-        #Si el bloque esta de pie
+        moves = []
+        # Si el bloque esta de pie
         if self.is_standing():
-            if is_valid_pos(Pos2D(self._b1.row,self._b1.col+1)) and is_valid_pos(Pos2D(self._b2.row,self._b2.col+2)):
-                iter.append(Move.Right)
-            if is_valid_pos(Pos2D(self._b1.row, self._b1.col - 1)) and is_valid_pos(Pos2D(self._b2.row, self._b2.col - 2)):
-                iter.append(Move.Left)
-            if is_valid_pos(Pos2D(self._b1.row + 1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row + 2, self._b2.col)):
-                iter.append(Move.Down)
-            if is_valid_pos(Pos2D(self._b1.row - 1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row - 2, self._b2.col)):
-                iter.append(Move.Up)
+            if is_valid_pos(self._b1.add_col(1)) and is_valid_pos(self._b1.add_col(2)):
+                moves.append(Move.Right)
+            if is_valid_pos(self._b1.add_col(-1)) and is_valid_pos(self._b1.add_col(-2)):
+                moves.append(Move.Left)
+            if is_valid_pos(self._b1.add_row(1)) and is_valid_pos(self._b1.add_row(2)):
+                moves.append(Move.Down)
+            if is_valid_pos(self._b1.add_row(-1)) and is_valid_pos(self._b1.add_row(-2)):
+                moves.append(Move.Up)
 
-        #Si el bloque esta horizontal
+        # Si el bloque esta horizontal
         elif self.is_lying_on_a_row():
-            if is_valid_pos(Pos2D(self._b1.row,self._b1.col+2)):
-                iter.append(Move.Right)
-            if is_valid_pos(Pos2D(self._b1.row,self._b1.col-1)):
-                iter.append(Move.Left)
-            if is_valid_pos(Pos2D(self._b1.row+1,self._b1.col)) and is_valid_pos(Pos2D(self._b2.row+1,self._b2.col)):
-                iter.append(Move.Down)
-            if is_valid_pos(Pos2D(self._b1.row - 1, self._b1.col)) and is_valid_pos(Pos2D(self._b2.row - 1, self._b2.col)):
-                iter.append(Move.Up)
+            if is_valid_pos(self._b1.add_col(2)):
+                moves.append(Move.Right)
+            if is_valid_pos(self._b1.add_col(-1)):
+                moves.append(Move.Left)
+            if is_valid_pos(self._b1.add_row(1)) and is_valid_pos(self._b2.add_row(1)):
+                moves.append(Move.Down)
+            if is_valid_pos(self._b1.add_row(-1)) and is_valid_pos(self._b2.add_row(-1)):
+                moves.append(Move.Up)
 
-        #Si el bloque esta vertical
+        # Si el bloque esta vertical
         elif self.is_lying_on_a_col():
-            if is_valid_pos(Pos2D(self._b1.row,self._b1.col+1)) and is_valid_pos(Pos2D(self._b2.row,self._b2.col+1)):
-                iter.append(Move.Right)
-            if is_valid_pos(Pos2D(self._b1.row, self._b1.col - 1)) and is_valid_pos(Pos2D(self._b2.row, self._b2.col - 1)):
-                iter.append(Move.Left)
-            if is_valid_pos(Pos2D(self._b1.row + 1, self._b1.col)):
-                iter.append(Move.Down)
-            if is_valid_pos(Pos2D(self._b1.row - 2, self._b1.col)):
-                iter.append(Move.Up)
+            if is_valid_pos(self._b1.add_col(1)) and is_valid_pos(self._b2.add_col(1)):
+                moves.append(Move.Right)
+            if is_valid_pos(self._b1.add_col(-1)) and is_valid_pos(self._b2.add_col(-1)):
+                moves.append(Move.Left)
+            if is_valid_pos(self._b1.add_row(2)):
+                moves.append(Move.Down)
+            if is_valid_pos(self._b1.add_row(-1)):
+                moves.append(Move.Up)
 
-        return iter
+        return moves
 
     def move(self, m: Move) -> "Block":
-        # TODO: IMPLEMENTAR - Debe devolver un nuevo objeto 'Block', sin modificar el original
+        # TODO: IMPLEMENTAR - Debe devolver un nuevo objeto 'Block', sin modificar el originaL
+        # Si el bloque esta de pie
         if self.is_standing():
-         pass
+            if m == "R":
+                block = Block(self._b1.add_col(1),  self._b2.add_col(2))
+            elif m == "L":
+                block = Block(self._b1.add_col(-2), self._b2.add_col(-1))
+            elif m == "D":
+                block = Block(self._b1.add_row(1), self._b2.add_row(2))
+            else:
+                block = Block(self._b1.add_row(-2), self._b2.add_row(-1))
+
+        # Si el bloque esta horizontal
+        elif self.is_lying_on_a_row():
+            if m == "R":
+                block = Block(self._b1.add_col(2), self._b2.add_col(1))
+            elif m == "L":
+                block = Block(self._b1.add_col(-1), self._b2.add_col(-2))
+            elif m == "D":
+                block = Block(self._b1.add_row(1), self._b2.add_row(1))
+            else:
+                block = Block(self._b1.add_row(-1), self._b2.add_row(-1))
+
+        # Si el bloque esta vertical
+        elif self.is_lying_on_a_col():
+            if m == "R":
+                block = Block(self._b1.add_col(1), self._b2.add_col(1))
+            elif m == "L":
+                block = Block(self._b1.add_col(-1), self._b2.add_col(-1))
+            elif m == "D":
+                block = Block(self._b1.add_row(2), self._b2.add_row(1))
+            else:
+                block = Block(self._b1.add_row(-1), self._b2.add_row(-2))
+
+        return block
+
+
 
 # ---------------------------------------------------------------------------------------------------------

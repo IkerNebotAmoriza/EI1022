@@ -1,7 +1,7 @@
 import sys
 from typing import *
 
-from brikerdef import Move, Block, Level
+from EI1022.Entregables.Entregable3.brikerdef import Move, Block, Level
 from Utils.bt_scheme import PartialSolutionWithVisitedControl, Solution, State
 
 
