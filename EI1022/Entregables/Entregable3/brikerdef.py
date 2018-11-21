@@ -43,25 +43,26 @@ class Level:
         self._sPos = self.locate("S")
         self._tPos = self.locate("T")
 
+    # Recorremos la matriz del nivel en busca del valor pasado como parametro
     def locate(self, pos: str) -> Pos2D:
         for row in range(self.rows):
             for col in range(self.cols):
                 if self._mat[row][col] == pos:
                     return Pos2D(row, col)
 
+    # Si alguna coordenada está fuera del tablero o es invalida devolvemos False
     def is_valid(self, pos: Pos2D) -> bool:
-        # posiciones marcadas con '-'. Para todos los demás casos debe devolver True.
-        r = pos.row
-        c = pos.col
-        if 0 <= r <= self.rows and 0 <= c <= self.cols:
-            if self._mat[r][c] != "-":
-                return True
-            return False
-        return False
+        if min(pos.row, pos.col) < 0 or pos.row >= self.rows or pos.col >= self.cols: return False
+        if self._mat[pos.row][pos.col] == "-": return False
 
+        # En caso contrario devolvemos True
+        return True
+
+    # Devolvemos la posicion inicial
     def get_startpos(self) -> Pos2D:
         return self._sPos
 
+    # Devolvemos la posicion objetivo
     def get_targetpos(self) -> Pos2D:
         return self._tPos
 
@@ -93,21 +94,24 @@ class Block:
     def __repr__(self):
         return "Block({}, {})".format(self._b1, self._b2)
 
-    def is_standing(self) -> bool:  # true si el bloque está de pie
+    # Devuelve True si el bloque está de pie
+    def is_standing(self) -> bool:
         return self._b1.row == self._b2.row and self._b1.col == self._b2.col
 
+    # Devuelve True si el bloque está de pie en la posición indicada en el parámetro
     def is_standing_at_pos(self, pos: Pos2D) -> bool:
-        # Devuelve true si el bloque está de pie en la posición indicada en el parámetro
         return self.is_standing() and self._b1.row == pos.row and self._b1.col == pos.col
 
-    def is_lying_on_a_row(self) -> bool:  # true si el bloque está tumbado en una fila
+    # Devuelve True si el bloque está tumbado en una fila
+    def is_lying_on_a_row(self) -> bool:
         return self._b1.row == self._b2.row and self._b1.col != self._b2.col
 
-    def is_lying_on_a_col(self) -> bool:  # true si el bloque está tumbado en una columna
+    # Devuelve True si el bloque está tumbado en una columna
+    def is_lying_on_a_col(self) -> bool:
         return self._b1.row != self._b2.row and self._b1.col == self._b2.col
 
+    # Devuelve una lista con los posibles movimientos del bloque
     def valid_moves(self, is_valid_pos: Callable[[Pos2D], bool]) -> Iterable[Move]:
-
         moves = []
         # Si el bloque esta de pie
         if self.is_standing():
@@ -180,7 +184,5 @@ class Block:
                 block = Block(self._b1.add_row(-1), self._b2.add_row(-2))
 
         return block
-
-
 
 # ---------------------------------------------------------------------------------------------------------

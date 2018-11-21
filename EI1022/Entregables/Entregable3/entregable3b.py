@@ -8,31 +8,29 @@ from Utils.bt_scheme import PartialSolutionWithOptimization, BacktrackingOptSolv
 def bricker_opt_solve(level):
     class BrikerOpt_PS(PartialSolutionWithOptimization):
         def __init__(self, block: Block, decisions: Tuple[Move, ...]):
-            # TODO: Implementar
-            raise NotImplementedError
+            self.block = block
+            self.decisions = decisions
 
-        def is_solution(self)-> bool:
-            # TODO: Implementar
-            raise NotImplementedError
+        def is_solution(self) -> bool:
+            return self.block.is_standing_at_pos(level.get_targetpos())
 
         def get_solution(self) -> Solution:
-            # TODO: Implementar
-            raise NotImplementedError
+            return self.decisions
 
-        def successors(self) -> Iterable["BrikerOpt_PS"]:
-            # TODO: Implementar
-            raise NotImplementedError
+        def successors(self) -> Iterable["BrikerVC_PS"]:
+            for movement in self.block.valid_moves(level.is_valid):
+                print(self.decisions)
+                yield BrikerOpt_PS(self.block.move(movement), self.decisions + (movement, ))
 
         def state(self) -> State:
-            # TODO: Implementar
-            raise NotImplementedError
+            return self.block
 
         def f(self) -> Union[int, float]:
-            # TODO: Implementar
-            raise NotImplementedError
+            return len(self.decisions)
 
     # TODO: crea initial_ps y llama a BacktrackingOptSolver.solve
-    raise NotImplementedError
+    initial_ps = BrikerOpt_PS(Block(level.get_startpos(), level.get_startpos()), ())
+    return BacktrackingOptSolver.solve(initial_ps)
 
 
 if __name__ == '__main__':

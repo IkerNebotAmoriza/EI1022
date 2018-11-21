@@ -23,7 +23,7 @@ def bricker_vc_solve(level: Level):
                 yield BrikerVC_PS(self.block.move(movement), self.decisions + (movement, ))
 
         def state(self) -> State:
-            return ((self.block._b1.row, self.block._b1.col), (self.block._b2.row, self.block._b2.col))
+            return self.block
 
     # TODO: crea initial_ps y llama a BacktrackingVCSolver.solve
     initial_ps = BrikerVC_PS(Block(level.get_startpos(), level.get_startpos()), ())
