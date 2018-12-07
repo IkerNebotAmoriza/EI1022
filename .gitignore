@@ -7,8 +7,8 @@
 *.iml
 out
 gen
-Algoritmia
-EasyCanvas
+algoritmia
+easycanvas
 *.xml
 /EI1022/.idea/
 *.xml
