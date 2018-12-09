@@ -1,94 +1,70 @@
 import statistics as stats
+import sys
 from typing import *
-from operator import itemgetter
 from EI1022.Entregables.Entregable4.kdtree import KDTree, KDLeaf, Axis, KDNode
 
 
-def read_points(filename: str) -> List[Tuple[float,float]]:
-    fich = open(filename)
+def read_points(filename: str) -> List[Tuple[float, float]]:
+    file = open(filename)
     points = []
-    for line in fich:
-        x,y = line.split(" ")
-        points.append((float(x),float(y)))
+    for line in file:
+        x, y = line.split(" ")
+        points.append((float(x), float(y)))
     return points
 
 
-def build_kd_tree(points: List[Tuple[float,float]]) -> KDTree:
-    def func(conj: List[Tuple[float,float]]):
-        if len(conj) == 1:
-            return KDLeaf(conj[0])
+def build_kd_tree(points: List[Tuple[float, float]]) -> KDTree:
+    def splitter(p: List[Tuple[float, float]]):  # Recursive function
+        if len(p) == 1:  # Returns a KDLeaf if the actual node is a leaf
+            return KDLeaf(p[0])
 
-        # Escojer el eje
-        difX = max(conj, key=itemgetter(0))[0] - min(conj, key=itemgetter(0))[0]
-        difY = max(conj, key=itemgetter(1))[1] - min(conj, key=itemgetter(1))[1]
-        #xlist = []
-        #ylist = []
+        # Obtains both axis lengths
+        x_len = max(p, key=lambda x: x[0])[0] - min(p, key=lambda x: x[0])[0]
+        y_len = max(p, key=lambda y: y[1])[1] - min(p, key=lambda y: y[1])[1]
 
-        xOrder = conj[:]
-        yOrder = conj[:]
-        xOrder.sort(key=lambda x: x[0])
-        yOrder.sort(key=lambda y: y[1])
-
-        #for i in range(len(xOrder)):
-        #   xlist.append(xOrder[i][0])
-        #    ylist.append(yOrder[i][1])
-
-        if difX >= difY:
-           axis = Axis.X
-           middle, left, right = median(xOrder, 0)
-
-           #med = stats.median(xlist)
-           #list_left, list_right = comparation(xOrder,med,0)
-           left = func(left)
-           right = func(right)
-
+        # Sorts the points according to the largest axis
+        sorted_p = p[:]
+        if x_len >= y_len:
+            n_axis = 0
+            axis = Axis.X
+            sorted_p.sort(key=lambda x: x[n_axis])
         else:
+            n_axis = 1
             axis = Axis.Y
-            middle, left, right = median(yOrder, 1)
+            sorted_p.sort(key=lambda x: x[n_axis])
 
-            #med = stats.median(ylist)
-            #list_left, list_right = comparation(yOrder, med, 1)
-            left = func(left)
-            right = func(right)
+        # In order to use 'stats.median' creates a list with only the longest axis coordinates
+        aux_list = []
+        for i in range(len(sorted_p)):
+            aux_list.append(sorted_p[i][n_axis])
 
-        return KDNode(axis,middle,left,right)
+        # Obtains KDNode parameters
+        med = stats.median(aux_list)
+        list_left, list_right = get_subtree(sorted_p, med, n_axis)
+        left = splitter(list_left)
+        right = splitter(list_right)
 
+        return KDNode(axis, med, left, right)
 
-    tree = func(points)
+    tree = splitter(points)
     return tree
 
 
-def median(sorted_points: List[Tuple[float,float]], axis: int):
-    mid_point = len(sorted_points)//2
-    if len(sorted_points)%2 == 0:
-        middle = (sorted_points[mid_point-1][axis]+sorted_points[mid_point][axis])/2
-    else:
-        middle = sorted_points[mid_point][axis]
-    left = sorted_points[0:mid_point-1]
-    right = sorted_points[mid_point:]
-    return middle, left, right
-
-
-def comparation(conj: List[Tuple[float,float]], mid: float, axis: int):
+# Obtains left and right subtrees of a KDNode
+def get_subtree(sorted_p: List[Tuple[float, float]], mid: float, axis: int):
     left = []
     right = []
-    if(axis==0):
-        for i in range(len(conj)):
-            if conj[i][0]< mid:
-                left.append(conj[i])
-            else:
-                right.append(conj[i])
-    else:
-        for i in range(len(conj)):
-            if conj[i][1]< mid:
-                left.append(conj[i])
-            else:
-                right.append(conj[i])
 
-    return left,right
+    for i in range(len(sorted_p)):  # If the actual point belongs to the left subtree
+        if sorted_p[i][axis] < mid:
+            left.append(sorted_p[i])
+        else:  # If the actual point belongs to the right subtree
+            right.append(sorted_p[i])
+
+    return left, right
 
 
 if __name__ == '__main__':
-    tuple = read_points("points2d_100.txt")
-    kdtree = build_kd_tree(tuple)
-    print(kdtree.pretty())
+    r_points = read_points(sys.argv[1])
+    kdt = build_kd_tree(r_points)
+    print(kdt.pretty())
