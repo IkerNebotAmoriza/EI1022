@@ -40,28 +40,14 @@ def build_kd_tree(points: List[Tuple[float, float]]) -> KDTree:
 
         # Obtains KDNode parameters
         med = stats.median(aux_list)
-        list_left, list_right = get_subtree(sorted_p, med, n_axis)
-        left = splitter(list_left)
-        right = splitter(list_right)
+        middle = len(sorted_p) // 2
+        left = splitter(sorted_p[:middle])
+        right = splitter(sorted_p[middle:])
 
         return KDNode(axis, med, left, right)
 
     tree = splitter(points)
     return tree
-
-
-# Obtains left and right subtrees of a KDNode
-def get_subtree(sorted_p: List[Tuple[float, float]], mid: float, axis: int):
-    left = []
-    right = []
-
-    for i in range(len(sorted_p)):  # If the actual point belongs to the left subtree
-        if sorted_p[i][axis] < mid:
-            left.append(sorted_p[i])
-        else:  # If the actual point belongs to the right subtree
-            right.append(sorted_p[i])
-
-    return left, right
 
 
 if __name__ == '__main__':
