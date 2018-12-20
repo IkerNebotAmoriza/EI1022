@@ -253,9 +253,9 @@ def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
             mem[(row, col)] = m[row][col] + minimum, min_pos
 
     # Obtenemos el extremo inferior de la veta
-    minimo = 256
     posicion = (rows-1, 0)
-    for col in range(cols):
+    minimo = mem[posicion][0]
+    for col in range(1, cols):
         if mem[(rows-1, col)][0] < minimo:
             minimo = mem[(rows-1, col)][0]
             posicion = (rows-1, col)
@@ -271,6 +271,6 @@ def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
 # No es necesario modificar el código que hay DEBAJO de esta línea
 ####################################################################################
 
+
 if __name__ == "__main__":
     main()
-
