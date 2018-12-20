@@ -161,7 +161,7 @@ def main():
     # LEER PARÁMETROS DE LA LÍNEA DE ÓRDENES
     image_filename = sys.argv[1]  # Por ejemplo: Castillo400x271.gif
     scale_width = (100 - max(1, min(99, int(sys.argv[2])))) / 100.0  # Por ejemplo: 15
-    output_filename = image_filename.split('.')[0]+f'_reduced_{sys.argv[2]}.gif'
+    output_filename = image_filename.split('.')[0] + f'_reduced_{sys.argv[2]}.gif'
 
     # Crea la ventana gráfica
     root = tkinter.Tk()
@@ -216,61 +216,118 @@ def main():
 # Encuentra la veta de menor energia y la devuelve como una lista de enteros: el entero en
 # la posición k, contiene el índice de la columna en la que se encuentra la veta en
 # la fila k.
+"""
+def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:  # TODO: IMPLEMENTAR
+    rows = len(m)
+    cols = len(m[0])
+
+    # IMPLEMENTACÍON FAKE: devuelve una veta al azar
+    from random import randint
+    seam = [randint(0, cols - 1)]
+    for r in range(1, rows):
+        seam.append(max(0, min(seam[-1] + randint(-1, 1), cols - 1)))
+    return seam
+
+"""
+
+
 def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
     rows = len(m)
     cols = len(m[0])
-    seam = []
+    lista = [] # vamos a devolverlo
+    mem = {}  # = [int, List[int]] peso, posicionAnterior
 
-    # Diccionario que contendrá todos los valores de energía de forma acumulativa para cada pixel de la imagen
-    mem = {}
-    # Introducimos los valores iniciales de la primera fila de pixeles en el diccionario
-    for col in range(cols):
-        mem[(0, col)] = m[0][col], None
+    """
+    Lo utilizamos para encontras los píxeles siguientes a los que puede ir a continuación, si no se puede
+    no lo añade a la lista.
+    """
 
-    # Recorremos la imagen y rellenamos fila por fila el diccionario
-    for row in range(1, rows):
-        for col in range(cols):
-            left, mid, right = 256, 256, 256
-            left_pos, mid_pos, right_pos = (row-1, col-1), (row-1, col), (row-1, col+1)
-            # Obtenemos el valor de la casilla superior central
-            mid = mem[mid_pos][0]
-            minimum = mid
-            min_pos = mid_pos
-            # Si no estamos en la primera columna obtenemos el valor de la casilla superior izquierda
-            if col > 0:
-                left = mem[left_pos][0]
-                if left < minimum:
-                    minimum = left
-                    min_pos = left_pos
-            # Si no estamos en la última columna obtenemos el valor de la casilla superior derecha
-            if col < cols-1:
-                right = mem[right_pos][0]
-                if right < minimum:
-                    minimum = right
-                    min_pos = right_pos
+    def sucesores(r: int, c: int):
 
-            # Acumulamos al valor de la casilla actual el valor del padre mínimo
-            mem[(row, col)] = m[row][col] + minimum, min_pos
+        re = []  # inicializamos la lista de sucesores
 
-    # Obtenemos el extremo inferior de la veta
-    minimo = 256
-    posicion = (rows-1, 0)
-    for col in range(cols):
-        if mem[(rows-1, col)][0] < minimo:
-            minimo = mem[(rows-1, col)][0]
-            posicion = (rows-1, col)
+        if r + 1 >= rows:   # si es la ultima fila salimos
+            return []
 
-    # A partir del extremo recuperamos la veta
-    for row in range(rows):
-        seam.append(posicion[1])
-        posicion = mem[posicion][1]
+        if c - 1 in range(cols):
+            re.append((r + 1, c - 1))
 
-    seam.reverse()
-    return seam
+        re.append((r + 1, c))
+
+        if c + 1 in range(cols):
+            re.append((r + 1, c + 1))
+
+        return re
+
+    """
+    Lo utilizamos para para que vaya viajando entre sus sucesores hasta que rellena el trayecto hasta el final
+    almacenando en memoria todos los calculos que va realizando.
+    """
+
+    def encontrar(r: int, c: int):
+
+        # miramos los sucesores
+        su = sucesores(r, c)
+
+        # si se da el caso de que somos "hoja" es decir no tenemos mas sucesores,
+        # nos guardamos en memoria y con hijo None y samilos
+
+        if len(su) == 0:
+            mem[(r, c)] = [m[r][c], None]  # guardo el dato en memoria.
+            return
+
+        else:
+            # revisamos que esten los sucesores,
+            for item in su:
+                sucesor_en_memoria = mem.get((item[0], item[1]))  # obtenemos de memoria el sucesor
+                print("---" + str(sucesor_en_memoria))
+                if sucesor_en_memoria is None:
+                    encontrar(item[0], item[1])  # si no tiene los sucesores los busca.
+
+            # una vez tenemos los sucesores con sus datos miramos cual es el que tiene el menor peso
+            # y lo pasamos lo guardamos hacia arriba.
+            menor1 = mem.get(su[0])
+            print(menor1)
+            menor = menor1[0]
+            dir_menor = su[0]
+            for item in su:
+                if mem[item][0] < menor:
+                    menor, dir_menor = mem[item][0], item
+            mem[(r, c)] = [m[r][c] + menor, dir_menor]
+
+        return
+
+    # creamos el diccionario con los pesos
+
+    for i in range(cols):
+        encontrar(0, i)
+
+    # una vez tenemos echa la tabla en mem, sacamos la lista
+
+    minimo, pos_minimo = mem[(0, 0)][0], (0, 0)
+    for i in range(cols):
+        if mem[(0, i)][0] < minimo:
+            minimo, pos_minimo = mem[(0, i)][0], (0, i)
+
+    dato = pos_minimo
+    lista.append(dato[1])     # guardamos el primer elemento en la lista.
+
+    runs = True
+    while runs:
+        dato = mem[dato][1]
+        if dato is None:
+            runs = False
+        if dato is not None:
+            lista.append(dato[1])
+
+    print("####################################################################################")
+    print(lista)
+    return lista
+
+
 ####################################################################################
 # No es necesario modificar el código que hay DEBAJO de esta línea
 ####################################################################################
 
 if __name__ == "__main__":
     main()
-
