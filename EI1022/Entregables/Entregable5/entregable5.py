@@ -161,7 +161,7 @@ def main():
     # LEER PARÁMETROS DE LA LÍNEA DE ÓRDENES
     image_filename = sys.argv[1]  # Por ejemplo: Castillo400x271.gif
     scale_width = (100 - max(1, min(99, int(sys.argv[2])))) / 100.0  # Por ejemplo: 15
-    output_filename = image_filename.split('.')[0]+f'_reduced_{sys.argv[2]}.gif'
+    output_filename = image_filename.split('.')[0] + f'_reduced_{sys.argv[2]}.gif'
 
     # Crea la ventana gráfica
     root = tkinter.Tk()
@@ -230,8 +230,7 @@ def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
     # Recorremos la imagen y rellenamos fila por fila el diccionario
     for row in range(1, rows):
         for col in range(cols):
-            left, mid, right = 256, 256, 256
-            left_pos, mid_pos, right_pos = (row-1, col-1), (row-1, col), (row-1, col+1)
+            left_pos, mid_pos, right_pos = (row - 1, col - 1), (row - 1, col), (row - 1, col + 1)
             # Obtenemos el valor de la casilla superior central
             mid = mem[mid_pos][0]
             minimum = mid
@@ -243,7 +242,7 @@ def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
                     minimum = left
                     min_pos = left_pos
             # Si no estamos en la última columna obtenemos el valor de la casilla superior derecha
-            if col < cols-1:
+            if col < cols - 1:
                 right = mem[right_pos][0]
                 if right < minimum:
                     minimum = right
@@ -253,12 +252,14 @@ def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
             mem[(row, col)] = m[row][col] + minimum, min_pos
 
     # Obtenemos el extremo inferior de la veta
-    posicion = (rows-1, 0)
+    posicion = (rows - 1, 0)
     minimo = mem[posicion][0]
     for col in range(1, cols):
-        if mem[(rows-1, col)][0] < minimo:
-            minimo = mem[(rows-1, col)][0]
-            posicion = (rows-1, col)
+        if mem[(rows - 1, col)][0] < minimo:
+            minimo = mem[(rows - 1, col)][0]
+            posicion = (rows - 1, col)
+
+    print("The accumulated energy of the seam is: %d " % minimo)
 
     # A partir del extremo recuperamos la veta
     for row in range(rows):
@@ -267,6 +268,8 @@ def find_lower_energy_seam(m: MatrixGrayImage) -> List[int]:
 
     seam.reverse()
     return seam
+
+
 ####################################################################################
 # No es necesario modificar el código que hay DEBAJO de esta línea
 ####################################################################################
